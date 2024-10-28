@@ -57,15 +57,18 @@ full_field: &FULL_FIELD
   two_step_training: !!bool False
   plot_animations: !!bool False
 
-  add_noise: !!bool True #False
-  noise_std: 0.3 #0.3 #0.03 #0.1 #0.3 #0
+  add_noise: !!bool True 
+  noise_std: 0.3 
+
+  hurricane_index_file: 'data/indices/noWP.pt'
+
 
 afno_backbone: &backbone
   <<: *FULL_FIELD
-  log_to_wandb: !!bool False ####True
+  log_to_wandb: !!bool False 
   lr: 5E-4
   batch_size: 16 ####64
-  max_epochs: 80 #150
+  max_epochs: 80 
   scheduler: 'CosineAnnealingLR'
   in_channels: [0, 1 ,2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
   out_channels: [0, 1 ,2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
@@ -93,28 +96,8 @@ afno_backbone_finetune:
   max_epochs: 50 #100 #50
   pretrained: !!bool True
   two_step_training: !!bool True
-  #pretrained_ckpt_path: 'results/era5_wind/afno_backbone/04/training_checkpoints/best_ckpt.tar'
-  #pretrained_ckpt_path: 'results/era5_wind/afno_backbone/301/training_checkpoints/best_ckpt.tar'
-  #pretrained_ckpt_path: 'results/era5_wind/afno_backbone/300/training_checkpoints/best_ckpt.tar'
-  #pretrained_ckpt_path: 'results/era5_wind/afno_backbone/200/training_checkpoints/best_ckpt.tar'
-  #pretrained_ckpt_path: 'results/era5_wind/afno_backbone/100/training_checkpoints/best_ckpt.tar'
-  #pretrained_ckpt_path: 'results/era5_wind/afno_backbone/12/training_checkpoints/best_ckpt.tar'
-  #pretrained_ckpt_path: 'results/era5_wind/afno_backbone/11/training_checkpoints/best_ckpt.tar'
-  #pretrained_ckpt_path: 'results/era5_wind/afno_backbone/10/training_checkpoints/best_ckpt.tar'
-  #pretrained_ckpt_path: 'results/era5_wind/afno_backbone/03/training_checkpoints/best_ckpt.tar'
-  #pretrained_ckpt_path: 'results/era5_wind/afno_backbone/00/training_checkpoints/best_ckpt.tar'
-  #pretrained_ckpt_path: 'results/era5_wind/afno_backbone/304/training_checkpoints/best_ckpt.tar'
   pretrained_ckpt_path: 'results/era5_wind/afno_backbone/302/training_checkpoints/best_ckpt.tar'
 
-afno_backbone_finefinetune: 
-  <<: *backbone
-  lr: 5E-5
-  batch_size: 8 #64
-  log_to_wandb: !!bool False ####True
-  max_epochs: 50 #50
-  pretrained: !!bool True
-  two_step_training: !!bool True
-  pretrained_ckpt_path: 'results/era5_wind/afno_backbone_finetune/01/training_checkpoints/best_ckpt_130.tar'
 
 perturbations:
   <<: *backbone
@@ -126,11 +109,11 @@ perturbations:
   pretrained_ckpt_path: '/pscratch/sd/j/jpathak/ERA5_expts_gtc/wind/afno_20ch_bs_64_lr5em4_blk_8_patch_8_cosine_sched/1/training_checkpoints/best_ckpt.tar'
   prediction_length: 24
   ics_type: "datetime"
-  n_perturbations: 10 #100 # 100 
+  n_perturbations: 100 
   save_channel: !bool True
   save_idx: 4
   save_raw_forecasts: !!bool False
-  date_strings: ["2018-10-07 18:00:00"] #["2018-01-01 00:00:00"] 
+  date_strings: ["2018-10-07 18:00:00"] 
   inference_file_tag: ""
   # valid_data_path: "/pscratch/sd/j/jpathak/ "
   valid_data_path: 'data/FCN_ERA5_data_v0/out_of_sample/2018/h5/2018'

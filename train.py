@@ -543,15 +543,12 @@ class Trainer():
 
 if __name__ == '__main__':
   parser = argparse.ArgumentParser()
-  parser.add_argument("--run_num", default='302', type=str)
+  parser.add_argument("--run_num", default='', type=str)
   parser.add_argument("--yaml_config", default='./config/AFNO.yaml', type=str)
-  #parser.add_argument("--config", default='afno_backbone_finefinetune', type=str)
   parser.add_argument("--config", default='afno_backbone_finetune', type=str)
-  #parser.add_argument("--config", default='afno_backbone', type=str)
   parser.add_argument("--enable_amp", default=True, action='store_true')
   parser.add_argument("--epsilon_factor", default=0, type=float)
   
-  ####### for UCAR
   parser.add_argument("--local-rank", type=int)
   #######
 

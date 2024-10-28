@@ -41,15 +41,15 @@ for exp in exps:
         for i, date in enumerate([hurricane[1], hurricane[2], hurricane[3]]):
             
             if exp in ['101', '102', '103', '104', '105']:
-                exp_name = 'FULL' # full model
+                exp_name = 'FULL' # FULL model
             elif exp in ['201', '202', '203', '204', '205']:
-                exp_name = 'RR'   # random_removed model
+                exp_name = 'RR'   # RAND model
             elif exp in ['301', '302', '303', '304', '305']:
-                exp_name = 'HR'   # hurricane_removed model
+                exp_name = 'HR'   # noTC model
             elif exp in ['401', '402', '403', '404', '405']:
-                exp_name = 'RRNA'   # Random_removed_NA model
+                exp_name = 'RRNA'   # noNA model
             elif exp in ['501', '502', '503', '504', '505']:
-                exp_name = 'RRWP'   # Random_removed_WP model
+                exp_name = 'RRWP'   # noWP model
             elif exp == '000':
                 exp_name = 'ORG'   # original model
 

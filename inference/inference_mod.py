@@ -308,7 +308,7 @@ if __name__ == '__main__':
     parser.add_argument("--vis", default=False, action='store_true', help='false if perturbations')
     parser.add_argument("--override_dir", default='results', type=str, help='Path to store inference outputs; must also set --weights arg')
     parser.add_argument("--interp", default=0, type=float)
-    parser.add_argument("--weights", default='results/era5_wind/afno_backbone_finetune/307/training_checkpoints/best_ckpt.tar', # hurricane_removed
+    parser.add_argument("--weights", default='results/era5_wind/afno_backbone_finetune/307/training_checkpoints/best_ckpt.tar',
                   type=str, help='Path to model weights, for use with override_dir option')
     
     args = parser.parse_args()

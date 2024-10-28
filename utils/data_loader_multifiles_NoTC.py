@@ -151,7 +151,7 @@ class GetDataset(Dataset):
             self.precip_files[year_idx] = h5py.File(self.precip_paths[year_idx], "r")["tp"]
 
     def hurricanes_by_mslp_threshold(self):
-        hurricanes_file = 'ours/era5_analysis/hurricanes.pt'
+        hurricanes_file = self.params.hurricane_index_file
         self.indices = {}
         if self.train:
             hurricanes = torch.load(hurricanes_file)
